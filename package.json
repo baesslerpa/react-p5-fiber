@@ -1,0 +1,15 @@
+{
+  "name": "react-p5-fiber",
+  "type": "module",
+  "version": "0.0.1",
+  "dependencies": {
+    "@types/p5": "^1.4.2",
+    "@types/react-reconciler": "^0.28.0",
+    "@types/uuid": "^8.3.4",
+    "p5": "^1.4.2",
+    "react": "^18.2.0",
+    "react-reconciler": "^0.29.0",
+    "uuid": "^8.3.2"
+  }
+
+}
