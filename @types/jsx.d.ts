@@ -1,8 +1,6 @@
 import { ReactNode } from "react";
 
-type CustomElement<T> = Partial<T>;
-// & DOMAttributes<T>
-// & { children: any }c
+type CustomElement<T> = Partial<T> & DOMAttributes<T> & { children: any };
 
 export declare global {
   export namespace JSX {
