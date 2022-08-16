@@ -1,6 +1,9 @@
 {
   "name": "react-p5-fiber",
   "type": "module",
+  "author": {
+    "name": "Patrick Bässler"
+  },
   "version": "0.0.1",
   "dependencies": {
     "@types/p5": "^1.4.2",
@@ -11,5 +14,4 @@
     "react-reconciler": "^0.29.0",
     "uuid": "^8.3.2"
   }
-
 }
