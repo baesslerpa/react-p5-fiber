@@ -1,42 +1,13 @@
-import p5 from "p5";
 import ReactReconciler from "react-reconciler";
-import DelayedP5 from "./../p5/DelayedP5";
 import Instance from "./models/Instance";
+import RootHostConfig from "./RootHostConfig";
 
 const childHostContext = {
   setup: [] as Instance[],
   draw: [] as Instance[],
 };
 
-class RootHostConfig {
-  public p5: DelayedP5 & {
-    _setup: () => void;
-    _draw: () => void;
-  } = undefined as any;
-  public p: any;
-  public rootElement: HTMLElement = undefined as any;
-
-  setup() {
-    this.p5 = new DelayedP5((p: p5) => (this.p = p), this.rootElement) as any;
-
-    this.p5.setup = () => {
-      for (const instance of childHostContext.setup) instance.run(this.p5);
-    };
-    this.p5._setup();
-
-    // console.warn("setup", this.p5.setup, this);
-  }
-
-  draw() {
-    this.p5.draw = () => {
-      window.dispatchEvent(new Event("p5-draw"));
-      for (const instance of childHostContext.draw) instance.run(this.p5);
-    };
-    this.p5._draw();
-  }
-}
-
-export const LocalRootHostConfig = new RootHostConfig();
+export const LocalRootHostConfig = new RootHostConfig(childHostContext);
 
 const hostConfig = {
   supportsMutation: true,
